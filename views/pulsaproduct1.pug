@@ -1,0 +1,57 @@
+<!--extends layout-->
+script(src='https://code.jquery.com/jquery-3.3.1.js')
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+
+block content
+	h1 #{title}
+	form(action="/pulsacheckout" method="post")
+		label(for="team_name")
+			Enter No HP:
+		input(id="nohp" type="text" name="nohp" value="")
+		div(id="prod")
+			div(id="listproduct")
+				p prod
+	if errors
+		ul
+			for error in errors
+				li!= error.msg
+
+block script
+	script.
+		$( document ).ready(function() {
+		$("#prod").hide();
+		//alert('READY');
+		});
+		
+		var xTriggered = 0;
+
+		$( "#nohp" ).keypress(function() {
+			xTriggered++;
+			if(xTriggered>4){
+			//alert('5x');
+				$.ajax({
+					type: "GET",
+					url: "/pulsaproduct/product"
+				}).done(function(data) {
+					var html = '<table>';
+					html += '<tr><td></td><td>nama</td><td>harga</td><td>status</td></tr>';
+					$.each(data.products, function(i, prod) {
+						html += '<tr>';
+						html += '<td><input type="radio" name="prodcode" value="'+prod.code+'|'+prod.name+'|'+prod.price+'">'+prod.code+'</td>';
+						html += '<td>' + prod.name + '</td>';
+						html += '<td>' + prod.price + '</td>';
+						html += '<td>' + prod.isActive + '</td>';
+						html += '</tr>';
+					});
+					html += '</table>';
+					html += '<button type="submit" value="Submit">Next</button></form>';
+					var $appendElem = $(html);
+
+					$appendElem.appendTo('#listproduct');
+					//$("#listproduct").append(html);
+					$("#prod").show();
+				});
+				xTriggered=0;
+				$('#listproduct').html('');
+			}
+		});

@@ -1,0 +1,208 @@
+// -----------------------------------section3 starts-----------------------
+section.form-section3.commonclass.mb-5
+    .container
+        .row
+            .col-lg-12
+                .form-sec.commonclass
+                    h4.text-capitalize tagihan pgn
+                    form
+                        .form-group.position-relative
+                            label.fs20.text-capitalize nomor pelanggan
+                            input.form-control#pelanggan-no-pgn(type='text', placeholder="Masukkan Nomor Pelanggan" ng-paste="inputDataPgn()" ng-change="inputDataPgn()" ng-model="noPelangganPgn")
+                            label.mt-4.fs20.text-capitalize nomor HP
+                            input.form-control#telephone-no-pgn(type='text', placeholder='Contoh: 081234567890' ng-change="inputDataPgn()" ng-model="noHp")
+                            label.mt-1.text-capitalize(style="color: #999999") Nomor HP ini digunakan untuk menerima sms konfirmasi
+                    .row.pt-2
+                        .col-md-6
+                        .col-md-6
+                            button.btn.btn-default.green-btn.float-right.text-uppercase(type='button' id='btn-beli' ng-disabled="!btnBeliPgn" ng-click="cektagihanpgn()") cek tagihan
+                    .alert.alert-success.success-msg.position-relative(role='alert')
+                        i.position-absolute.fa.fa-info(aria-hidden='true')
+                        p
+                            | pastikan data yang Anda masukan sudah benar.
+// form-sec ends
+// -----------------------------------section3 ends-----------------------
+// -----------------------------modal loading starts----------------------
+.modal.fade#modalLoading
+    .modal-dialog.modal-lg.modal-dialog-centered
+        .modal-content
+            // Modal Header
+            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                h4.modal-title(style="color: #009933") Harap Tunggu
+            // Modal body
+            .modal-body
+                hr(style="margin-top: 0rem")
+                h5.text-center Cek Tagihan...
+            // Modal footer
+            .modal-footer(style="border-top: 0px")
+// -----------------------------modal loading ends------------------------
+// -----------------------------modal cek starts-------------------
+.modal.fade#modalCek
+    .modal-dialog.modal-lg.modal-dialog-centered
+        .modal-content
+            // Modal Header
+            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                h4.modal-title(style="color: #009933") Transaksi Pgn
+            // Modal body
+            .modal-body
+                .row
+                    .col-4
+                        h6.text-capitalize Reff ID
+                    .col-1.text-center
+                        | :
+                    .col-7
+                        h6.text-capitalize#billingReferenceID
+                hr.divider
+                .row
+                    .col-4
+                        h6.text-capitalize
+                            strong ID Customer
+                    .col-1.text-center
+                        | :
+                    .col-7
+                        h6.text-capitalize
+                            strong#customerID
+                hr.divider
+                .row
+                    .col-4
+                        h6.text-capitalize
+                            strong Name
+                    .col-1.text-center
+                        | :
+                    .col-7
+                        h6.text-capitalize
+                            strong#customerName
+                hr.divider
+                .row
+                    .col-4
+                        h6.text-capitalize Phone
+                    .col-1.text-center
+                        | :
+                    .col-7
+                        h6.text-capitalize#customerMSISDN
+                hr.divider
+                .row
+                    .col-4
+                        h6.text-capitalize Date
+                    .col-1.text-center
+                        | :
+                    .col-7
+                        h6.text-capitalize#respTime
+                hr.divider
+                .row
+                    .col-4
+                        h6.text-capitalize Payment
+                    .col-1.text-center
+                        | :
+                    .col-7
+                        h6.text-capitalize#payment
+                hr.divider
+                .row
+                    .col-4
+                        h6.text-capitalize Admin Bank
+                    .col-1.text-center
+                        | :
+                    .col-7
+                        h6.text-capitalize#adminBank
+                hr.divider
+                .row
+                    .col-4
+                        h6.text-capitalize
+                            strong Billing
+                    .col-1.text-center
+                        | :
+                    .col-7
+                        h6.text-capitalize
+                            strong#billing
+                hr.divider
+                .row
+                    .col-4
+                        h6.text-capitalize
+                            strong Periode
+                    .col-1.text-center
+                        | :
+                    .col-7
+                        h6.text-capitalize
+                            strong#period
+                hr.divider
+                .row
+                    .col-4
+                        h6.text-capitalize
+                            strong Notice
+                    .col-1.text-center
+                        | :
+                    .col-7
+                        h6.text-capitalize
+                            strong#respMessage
+                hr.divider
+                .row
+                    .col-4
+                        h6.text-capitalize
+                            strong Point
+                    .col-1.text-center
+                        | :
+                    .col-7
+                        h6.text-capitalize
+                            strong#ep
+            // Modal footer
+            .modal-footer(style="border-top: 0px")
+                button.btn.btn-secondary(type='button', data-dismiss='modal') KEMBALI
+                button.btn.btn-success#btOk(ng-click="tampilModalKonfirmasi()", type='button', data-dismiss='modal') BAYAR
+// -----------------------------modal cek ends---------------------
+// -----------------------------modal konfirmasi starts-------------------
+.modal.fade#modalKonfirmasi
+    .modal-dialog.modal-lg.modal-dialog-centered
+        .modal-content
+            // Modal Header
+            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                h4.modal-title(style="color: #009933") Konfirmasi Pembayaran
+            // Modal body
+            .modal-body
+                hr(style="margin-top: 0rem")
+                .row
+                    .col-8.my-auto
+                        h5 Nomor Pelanggan Pgn
+                        br
+                        h6#customerIDmodal(style="margin-bottom: 10px")
+                    .col-4.my-auto(style="text-align: right;")
+                        img.img-fluid#logoProvider(src="/images/icon_produk/tagihan_pgn.png")
+                hr
+                h5 Detail
+                br
+                .row
+                    .col-8
+                        h6.text-capitalize(style="margin-bottom: 10px") jumlah tagihan
+                        h6.text-capitalize biaya transaksi
+                    .col-4(style="text-align: right;")
+                        h6.text-capitalize#paymentmodal(style="margin-bottom: 10px")
+                        h6.text-capitalize#adminBankmodal
+                hr
+                .row
+                    .col-8
+                        h5.text-capitalize total
+                    .col-4(style="text-align: right;")
+                        h5.text-capitalize#billingmodal(style="color: #009933")
+            // Modal footer
+            .modal-footer(style="border-top: 0px")
+                button.btn.btn-secondary(type='button', data-dismiss='modal') BATALKAN
+                button.btn.btn-success#btKonfirmasi(ng-click="tampilModalAlert()", type='button', data-dismiss='modal') YA, LANJUTKAN
+// -----------------------------modal konfirmasi ends---------------------
+// -----------------------------modal alert starts------------------------
+.modal.fade#modalAlert
+    .modal-dialog.modal-lg.modal-dialog-centered
+        .modal-content
+            // Modal Header
+            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                h4.modal-title(style="color: #009933") Alert
+            // Modal body
+            .modal-body
+                hr(style="margin-top: 0rem")
+                h5.text-center#responAlert
+                //- br
+                //- hr
+                //- h5 gagal
+                //- br
+            // Modal footer
+            .modal-footer(style="border-top: 0px")
+                button.btn.btn-success#btOk(type='button', data-dismiss='modal') OK
+// -----------------------------modal alert ends--------------------------

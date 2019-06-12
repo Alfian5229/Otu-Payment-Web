@@ -1,0 +1,57 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+    padding: 0;
+    margin: 0;
+    background: url(../images/1.png) repeat;
+	position: relative;
+	margin: 0;
+	padding-bottom: 6rem;
+	min-height: 700px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.top-container {
+	height: 10%;
+	background-color: #f1f1f1;
+	padding: 0px;
+	text-align: center;
+}
+
+.header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+.content {
+	width: 41.5%;
+	margin: 0 auto;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}

@@ -1,0 +1,35 @@
+extends layout
+block script
+	script(src='https://code.jquery.com/jquery-3.3.1.js')
+	script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+
+block content
+	div(class="main")
+		div(class="content")
+			div(class="sap_tabs")
+				div(id="horizontalTab" style="display: block; width: 100%; margin: 0px;")
+				div(class="resp-tabs-container")
+ 
+					block divtab
+							div(class="tab-1 resp-content-active" aria-labelledby="tab_item-0")
+								div(class="payment-info")
+								h3 #{title}
+									form(action="/pulsacheckout/pay" method="post")
+										div(class="tab-for")
+											<br>
+											<p>
+												h4 No Handphone #{nope}</p>
+											<p>
+												h4 Transaksi Ke - 1</p>
+											<p>
+												h4 Harga #{par[2]}</p>
+										input(type="hidden" name="prodcode" value={code})
+										input(type="hidden" name="MSISDN" value={nope})
+										input(type="submit" value="Bayar")
+	if errors
+		ul
+			for error in errors
+				li!= error.msg
+
+block script
+	script.

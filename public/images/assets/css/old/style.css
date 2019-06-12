@@ -1,0 +1,194 @@
+/* CSS Document */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-size: 14px;
+  font-family: Arial;
+  /*overflow-x: hidden;*/
+}
+
+ul,
+li,
+img {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  outline-offset: none;
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+span {
+  margin: 0;
+  padding: 0;
+}
+
+input[type=text],
+input[type=button],
+input[type=submit],
+textarea {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  outline-offset: none;
+  border: none;
+}
+
+a,
+a:hover,
+a:visited,
+a:focus,
+ul li:hover,
+ul li:visited,
+ul li:focus,
+span:hover,
+span:visited,
+span:focus,
+label:hover:before {
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.fleft {
+  float: left;
+}
+
+.fright {
+  float: right;
+}
+
+.marginauto {
+  margin: 0 auto;
+}
+
+.commonclass {
+  width: 100%;
+  float: left;
+}
+
+
+
+/*---------------------header css-----------------*/
+.topbar .bg-light{
+  background: transparent !important;
+}
+.topbar-rightnav .nav-link{
+  color: #009933;
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 30px;
+}
+.topbar-rightnav .fa-plus {
+  color: #fff;
+  background: #fcee21;
+  padding: 4px 8px;
+  border-radius: 17px;
+  font-size: 30px;
+  font-weight: 400;
+}
+.topbar .navbar{
+  padding: 0rem 1rem;
+}
+.navbar-nav .last-item{
+  border-right: 2px solid #dce1e3;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 16px 5px;
+}
+/*---------------------header css ends------------*/
+
+
+
+/*---------------------banner css starts----------*/
+.banner-img img {
+  width: 100%;
+}
+
+/*---------------------banner css ends------------*/
+
+
+
+/*--------------------payment-modes  css starts---------*/
+.payment-modes{
+  background: #fcfcfc;
+  border:2px solid #ececec;
+  border-left:0;
+  border-right:0;
+  padding: 15px 0px;
+}
+.payment-modes .border-right-0{
+  border-right:0;
+}
+.grid-box {
+  float: left;
+  width: 100%;
+  border-right: 2px solid #e6e6e6;
+}
+.grid-box h4{
+  color:#4d4d4d;
+  font-size: 25px;
+  font-weight: 400;
+  margin-top: 20px;
+}
+.grid-box p{
+  color: #4d4d4d;
+  font-size:14px;
+  font-weight: 400;
+}
+.pay-lists ul li .nav-link{
+  margin-top: 17px;
+}
+.nav-link img {
+  margin: 0 auto;
+  max-height: 36px;
+}
+.pay-lists .nav-link {
+  padding: 0px 0px 0px 0px;
+  margin: 0px 36px 0px 0px;
+}
+.pay-lists .nav-link label {
+  font-size: 8px;
+  font-weight: 700;
+  color: #4d4d4d;
+  display: block;
+  margin-top: 17px;
+  text-align: center;
+}
+.pay-lists .nav-item {
+  width: 20%;
+}
+/*--------------------payment-modes css ends-----------*/
+
+
+
+
+/*--------------section3 css starts----------------*/
+.sec3 {
+  padding: 200px 0px;
+}
+
+.sec3-texture h2{
+  color:#808080;
+  font-size:34px;
+  font-weight:700;
+}
+/*--------------section3 css ends------------------*/

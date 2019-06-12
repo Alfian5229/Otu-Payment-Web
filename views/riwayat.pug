@@ -1,0 +1,24 @@
+// -----------------------------------section3 starts-----------------------
+section.form-section3.commonclass.mb-5
+    .container
+        .form-sec.commonclass
+            h4.text-capitalize.mb-3 Riwayat
+            .btn-group.btn-group-justified
+                button#rsaldo.btn.btn-success.text-uppercase(type='button' ng-click="cekriwayat('saldo')") riwayat saldo
+                button#rtransaksi.btn.btn-success.text-uppercase(type='button' ng-click="cekriwayat('transaksi')") riwayat transaksi
+                button#rdeposit.btn.btn-success.text-uppercase(type='button' ng-click="cekriwayat('deposit')") riwayat deposit
+                button#rpenarikan.btn.btn-success.text-uppercase(type='button' ng-click="cekriwayat('penarikan')") riwayat penarikan
+                button#rbonus.btn.btn-success.text-uppercase(type='button' ng-click="cekriwayat('bonus')") riwayat bonus
+                button#rtransfer.btn.btn-success.text-uppercase(type='button' ng-click="cekriwayat('transfer')") riwayat transfer antar member
+        .form-sec.commonclass
+            //- .float-left
+            //-     h4.text-capitalize(style="margin-top: 0px;") Riwayat
+            .float-right(style="margin-top: 30px; margin-bottom: 30px;")
+                .form-inline
+                    label start date :
+                    input#startdate.form-control.ml-2.mr-3(type="date" ng-change="startdatechanged()" ng-model="startdate" required)
+                    label end date :
+                    input#enddate.form-control.ml-2(type="date" ng-change="enddatechanged()" ng-model="enddate" required)
+            .clearfix
+            h5.text-center#emptydata(style="display: none;") Data Tidak Ada
+            table#datatable.table.table-striped.table-bordered.table-hover.table-responsive.text-center(style='width:100%;')

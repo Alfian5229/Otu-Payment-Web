@@ -1,0 +1,350 @@
+doctype html
+html(lang='en' ng-app="myApp")
+    head
+        // Required meta tags
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        title OtuChat
+        // Bootstrap CSS
+        link(href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+        // link(rel='stylesheet', type='text/css', src='css/bootstrap.min.css')
+        // Custom styles for this template
+        link(href='/images/assets/css/style.css', rel='stylesheet', type='text/css')
+        link(href='/images/assets/css/responsive.css', rel='stylesheet', type='text/css')
+        // Angular core
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-animate.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-aria.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-messages.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.22/angular-ui-router.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.7.8/angular-sanitize.min.js")
+        link(rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.min.css")
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.min.js')
+        // Angular Material style sheet
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.18/angular-material.min.css")
+        // Angular Material Library
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.18/angular-material.min.js")
+        // Datatable css
+        link(rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css")
+        style.
+            .carousel-inner img {
+                width: 100%;
+                height: 100%;
+            }
+            .modal-content {
+                border: 0px;
+            }
+            .carousel-control-prev, .carousel-control-next {
+                display: none;
+            }
+            .header-chat:hover {
+                opacity: .8;
+            }
+            .open > .dropdown-menu {
+                display: block;
+            }
+
+    body(ng-controller="myCtrl")
+        div(ng-cloak ui-view="forbiddenpage")
+            // -----------------------------header starts--------------------------
+            //- header
+            //-     nav.navbar.navbar-light.bg-white
+            //-         ul.navbar-nav.ml-auto
+            //-             .navbar-text#usersaldo(ng-cloak)
+            //-             .navbar-text#userbonus(ng-cloak)
+            //-             button#btLogin.btn.btn-success(style='display: none', type='button', onclick='login()') LOGIN
+            //-             button#btLogout.btn.btn-success(style='display: none', type='button', onclick='logout()') LOGOUT
+            header
+                .container
+                    .row.align-items-center.justify-content-end
+                        .col-auto
+                            #usersaldo(ng-cloak)
+                        .col-auto
+                            #userbonus(ng-cloak)
+                        .btn-group.btn-group-justified(style="min-height: 50px;")
+                            button#btHome.btn.btn-success(style='display: none', type='button', ng-click='menuutama()') MENU UTAMA
+                        
+                            button#btTopup.btn.btn-success(style='display: none', type='button', ng-click='topup()') TOPUP
+                        
+                            button#btTransfersaldo.btn.btn-success(style='display: none', type='button', ng-click='transfersaldo()') TRANSFER SALDO
+                        
+                            button#btRiwayat.btn.btn-success(style='display: none', type='button', ng-click='cekriwayat()') CEK RIWAYAT
+                        
+                            button#btLoginLogout.btn.btn-success(type='button', ng-click='loginlogout()') LOGIN
+            // -----------------------------------header ends----------------------------
+            // -----------------------------------banner section starts-----------------
+            section.banner.commonclass#loadbanner
+                .banner-img.commonclass
+                    #demo.carousel.slide(data-ride='carousel')
+                        // Indicators
+                        ul.carousel-indicators
+                            li.active#indicators0(data-target='#demo', data-slide-to='0')
+                        // The slideshow
+                        .carousel-inner
+                            .carousel-item.active#banner-carousel0
+                                img.img-fluid#banner0(alt='Banner')
+                        // Left and right controls
+                        a.carousel-control-prev(href='#demo', data-slide='prev')
+                            span.carousel-control-prev-icon
+                        a.carousel-control-next(href='#demo', data-slide='next')
+                            span.carousel-control-next-icon
+            // -----------------------------------banner section ends-------------------
+            div(ng-cloak ui-view="isi" ng-hide="hideisi")
+            div(ng-hide="main")
+                // -----------------------------------section2 payment modes----------------
+                section.payment-modes.commonclass.bg-white(style='padding-bottom:50px;')
+                    .container
+                        .row
+                            //menu isi ulang
+                            .col-lg-12.d-flex
+                                .grid-box(style='border-right:0px;')
+                                    h4 Isi Ulang
+                                    h5 Makin banyak transaksi, makin banyak untungnya!
+                            .row(style="text-align: center; padding-left: 15px; padding-right: 15px;")
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("buycreditpulsa")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/Produk_01.png', alt='Isi Ulang Pulsa')
+                                        br
+                                        label.text-uppercase pulsa
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("buycreditpaketdata")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/Produk_02.png', alt='Isi Ulang Paket Data')
+                                        br
+                                        label.text-uppercase paket data
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("buycredittokenlistrik")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/Produk_03.png', alt='Isi Ulang Token Listrik')
+                                        br
+                                        label.text-uppercase token listrik
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("buycreditetoll")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/Produk_04.png', alt='Isi Ulang E-Toll')
+                                        br
+                                        label.text-uppercase e-toll
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("buycreditgame")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/Produk_05.png', alt='Isi Ulang Voucher Game')
+                                        br
+                                        label.text-uppercase voucher game
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("buycreditsms")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/Produk_06.png', alt='Isi Ulang SMS')
+                                        br
+                                        label.text-uppercase sms
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("buycredittelepon")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/Telepon.png', alt='Isi Ulang Telepon')
+                                        br
+                                        label.text-uppercase telepon
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("buycreditesaldo")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/Topup Gojek.png', alt='Isi Ulang E-Saldo')
+                                        br
+                                        label.text-uppercase e-saldo
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("buycreditwifiid")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/Produk_10.png', alt='Isi Ulang Wifi')
+                                        br
+                                        label.text-uppercase wifi
+                                    //- li.nav-item
+                                    //-     a.nav-link.d-flex.flex-column(href='javascript:;')
+                                    //-         img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/Donasi Yayasan.png', alt='Main-Payment_Payment-Home1_63')
+                                    //-         label.text-uppercase donasi
+                            //menu tagihan
+                            .col-lg-12.d-flex
+                                .grid-box(style='border-right:0px;')
+                                    h4 Tagihan
+                                    h5 Bayar tagihan ga pake ribet!
+                            .row(style="text-align: center; padding-left: 15px; padding-right: 15px;")
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("tagihanlistrik")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/tagihan_listrik.png', alt='Tagihan Listrik')
+                                        br
+                                        label.text-uppercase tagihan listrik
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("tagihanbpjs")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/tagihan_bpjs.png', alt='Tagihan BPJS')
+                                        br
+                                        label.text-uppercase bpjs
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("tagihanpascabayar")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/tagihan_pascabayar.png', alt='Tagihan Pascabayar')
+                                        br
+                                        label.text-uppercase pasca bayar
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("tagihantvkabel")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/tagihan_tvkabel.png', alt='Tagihan TV Kabel')
+                                        br
+                                        label.text-uppercase tv kabel
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("tagihanpdam")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/tagihan_pdam.png', alt='Tagihan PDAM')
+                                        br
+                                        label.text-uppercase pdam
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("tagihantelkom")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/tagihan_telkom.png', alt='Tagihan TELKOM')
+                                        br
+                                        label.text-uppercase telkom
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("tagihanfinance")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/tagihan_finance.png', alt='Tagihan Finance')
+                                        br
+                                        label.text-uppercase finance
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("tagihanpgn")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/tagihan_pgn.png', alt='Tagihan PGN')
+                                        br
+                                        label.text-uppercase pgn
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color
+                                    a(ng-click='myFunc("tagihankartukredit")')
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/tagihan_kartukredit.png', alt='Tagihan Kartu Kredit')
+                                        br
+                                        label.text-uppercase kartu kredit
+                                .col-md-2.col-sm-3.col-3.mt-3.common-color(style="visibility: hidden")
+                                    a
+                                        img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/tagihan_kartukredit.png', alt='Tagihan Kartu Kredit')
+                                        br
+                                        label.text-uppercase kartu kredit
+                // -----------------------------------section2 payment modes----------------\
+                // -----------------------------------section3 starts-----------------------
+                div#isiPayment(ui-view)
+                section.sec3.commonclass#pilihProduk.bg-white
+                    .container-fluid
+                        .row
+                            .col-lg-12.text-center
+                                .phn-img-div.commonclass
+                                    img.img-fluid(src='/images/assets/images/Main-Payment_Payment-Home1_80.png', alt='Main-Payment_Payment-Home1_80')
+                                .sec3-texture.commonclass
+                                    h2 Pilih salah satu produk,
+                                    h2 untuk memulai transaksi.
+                // -----------------------------------section3  ends-----------------------
+            // -----------------------------modal login starts-------------------
+            .modal.fade#modalLogin
+                .modal-dialog.modal-lg.modal-dialog-centered
+                    .modal-content
+                        // Modal Header
+                        .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                            h4.modal-title(style="color: #009933") Login
+                        // Modal body
+                        .modal-body
+                            form(style="display: none")
+                                .form-group.position-relative
+                                    label.fs20.mb-2.text-capitalize Nomor Hp
+                                    input.m-b-4.form-control#email(type='text', autocomplete="username" placeholder='Masukkan nomor hp' ng-model="nomor_hp")
+                            form
+                                .form-group.position-relative
+                                    label.fs20.mb-2.text-capitalize Password
+                                    input.m-b-4.form-control#password(type='password', autocomplete="new-password" placeholder='Masukkan password')
+                        // Modal footer
+                        .modal-footer(style="border-top: 0px")
+                            button.btn.btn-success#btKonfirmasi(type='button', ng-click="cekLogin()") LOGIN
+            // -----------------------------modal login ends---------------------
+            // -----------------------------modal transfer starts-------------------
+            .modal.fade#modalTransferSaldo
+                .modal-dialog.modal-lg.modal-dialog-centered
+                    .modal-content
+                        form(ng-submit="cektujuantransfer()")
+                            // Modal Header
+                            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                                h4.modal-title(style="color: #009933") Transfer Saldo
+                            // Modal body
+                            .modal-body
+                                hr(style="margin-top: 0rem")
+                                .form-group.position-relative
+                                    label.fs20.mb-2.text-capitalize Tujuan Transfer
+                                    input.m-b-4.form-control#saldotujuan(type='text', placeholder='Masukkan Tujuan' required)
+                                .form-group.position-relative
+                                    label.fs20.mb-2.text-capitalize Nominal Transfer
+                                    input.m-b-4.form-control#saldonominal(type='text', placeholder='Masukkan Nominal Transfer' required)
+                                    label.mb-2.text-danger.text-capitalize Minimal transfer saldo Rp 10.000
+                                .form-group.position-relative
+                                    label.fs20.mb-2.text-capitalize PIN
+                                    input.m-b-4.form-control#saldopin(type='password', placeholder='Masukkan PIN' required)
+                            // Modal footer
+                            .modal-footer(style="border-top: 0px")
+                                button.btn.btn-secondary(type='button', data-dismiss='modal') KEMBALI
+                                input.btn.btn-success#btKonfirmasi(type='submit' value='TRANSFER')
+            // -----------------------------modal transfer ends---------------------
+            // -----------------------------modal alert starts------------------------
+            .modal.fade#modalAlert
+                .modal-dialog.modal-lg.modal-dialog-centered
+                    .modal-content
+                        // Modal Header
+                        .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                            h4.modal-title(style="color: #009933") Alert
+                        // Modal body
+                        .modal-body
+                            hr(style="margin-top: 0rem")
+                            h5.text-center#responAlert
+                        // Modal footer
+                        .modal-footer(style="border-top: 0px")
+                            button.btn.btn-success#btOk(type='button', data-dismiss='modal') OK
+            // -----------------------------modal alert ends--------------------------
+            // -----------------------------modal transferKonfirmasi starts-------------------
+            .modal.fade#modalTransferKonfirmasi
+                .modal-dialog.col-8.modal-dialog-centered
+                    .modal-content
+                        form(ng-submit="cektujuantransfer()")
+                            // Modal Header
+                            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                                h5.modal-title.text-center(style="color: #009933")
+                                    | Apakah Anda yakin akan melanjutkan Transfer Saldo OTU?
+                            // Modal body
+                            .modal-body
+                                hr(style="margin-top: 0rem")
+                                .row
+                                    .col-6
+                                        h6.mb-2.text-capitalize transfer kepada
+                                        h6.mb-2.text-capitalize ID member
+                                        h6.mb-2.text-capitalize nomor handphone
+                                        h6.mb-2.text-capitalize nominal transfer
+                                    .col-1.text-center
+                                        h6.mb-2 :
+                                        h6.mb-2 :
+                                        h6.mb-2 :
+                                        h6.mb-2 :
+                                    .col-5(style="text-align: right;")
+                                        h6.mb-2.font-weight-bold.text-capitalize#konfnama
+                                        h6.mb-2.font-weight-bold.text-capitalize#konfid
+                                        h6.mb-2.font-weight-bold.text-capitalize#konftelp
+                                        h6.mb-2.font-weight-bold.text-capitalize#konfnominal
+                                hr
+                            // Modal footer
+                            .modal-footer(style="border-top: 0px")
+                                button.btn.btn-secondary(type='button', data-dismiss='modal') BATALKAN
+                                button.btn.btn-success#btTransferKonfirmasi(ng-click="transferSaldoFix()" type='button', data-dismiss='modal') YA, LANJUTKAN
+            // -----------------------------modal transferKonfirmasi ends---------------------
+        // Optional JavaScript
+        // jQuery first, then Popper.js, then Bootstrap JS
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+        //script(src='/images/assets/js/bootstrap.min.js')
+        //datatablejs
+        script(src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+        script(src='https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js')
+        //angularjs file for newDesign
+        script(src="/images/assets/js/newdesign.js")
+        script(src="/images/assets/js/riwayat.js")
+        script(src="/images/assets/js/topup.js")
+        //angularjs file for each payments
+        script(src="/images/assets/js/buycreditpulsa.js")
+        script(src="/images/assets/js/buycreditpaketdata.js")
+        script(src="/images/assets/js/buycredittokenlistrik.js")
+        script(src="/images/assets/js/buycreditetoll.js")
+        script(src="/images/assets/js/buycreditgame.js")
+        script(src="/images/assets/js/buycreditsms.js")
+        script(src="/images/assets/js/buycredittelepon.js")
+        script(src="/images/assets/js/buycreditesaldo.js")
+        script(src="/images/assets/js/buycreditwifiid.js")
+        script(src="/images/assets/js/tagihanlistrik.js")
+        script(src="/images/assets/js/tagihanbpjs.js")
+        script(src="/images/assets/js/tagihantelkom.js")
+        script(src="/images/assets/js/tagihanpgn.js")
+        script(src="/images/assets/js/tagihanpascabayar.js")
+        script(src="/images/assets/js/tagihantvkabel.js")
+        script(src="/images/assets/js/tagihanpdam.js")
+        script(src="/images/assets/js/tagihanfinance.js")
+        script(src="/images/assets/js/tagihankartukredit.js")
