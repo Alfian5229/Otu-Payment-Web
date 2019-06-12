@@ -1,0 +1,53 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style_newone.css')
+		
+		style(type="text/css").
+			.mySlides {display:none;}
+	body
+		div(id="top-container")
+			div(style="border: 2px solid black;border-radius: 5px;float:right;width:69%;")
+				div(class="w3-content w3-display-container")
+					img(class="mySlides" style="width: 100%;margin: 10px 0px -45px 0px;" src="https://crm.eklanku.com/assets/imgMAX/main_banner/1.jpg")
+					img(class="mySlides" style="width: 100%;margin: 10px 0px -45px 0px;" src="https://crm.eklanku.com/assets/imgMAX/main_banner/2.jpg")
+					img(class="mySlides" style="width: 100%;margin: 10px 0px -45px 0px;" src="https://crm.eklanku.com/assets/imgMAX/main_banner/3.jpg")
+				button(class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)")
+					p <
+				button(class="w3-button w3-black w3-display-right" onclick="plusDivs(1)")
+					p >
+			div(style="border: 2px solid black;border-radius: 5px;float:right;width:29%;")
+				p KOSONG
+				
+		div(class="header" id="myHeader")
+			img(class="imgproduk" src="/images/icon_produk/Produk_01.png")
+			img(class="imgproduk" src="/images/icon_produk/Produk_02.png")
+			img(class="imgproduk" src="/images/icon_produk/Produk_03.png")
+			img(class="imgproduk" src="/images/icon_produk/Produk_04.png")
+			img(class="imgproduk" src="/images/icon_produk/Produk_05.png")
+			img(class="imgproduk" src="/images/icon_produk/Produk_06.png")
+			img(class="imgproduk" src="/images/icon_produk/Produk_07.png")
+		
+		block script
+				script.
+					var slideIndex = 1;
+					showDivs(slideIndex);
+
+					function plusDivs(n) {
+					  showDivs(slideIndex += n);
+					}
+
+					function showDivs(n) {
+					  var i;
+					  var x = document.getElementsByClassName("mySlides");
+					  if (n > x.length) {slideIndex = 1}
+					  if (n < 1) {slideIndex = x.length}
+					  for (i = 0; i < x.length; i++) {
+						x[i].style.display = "none";  
+					  }
+					  x[slideIndex-1].style.display = "block";  
+					}
+					
+		block scriptcontent
+		block content

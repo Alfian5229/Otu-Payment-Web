@@ -1,0 +1,132 @@
+// -----------------------------------section3 starts-----------------------
+section.form-section3.commonclass
+    .container
+        .form-sec.commonclass
+            div(ng-switch='GantiIsiEsaldo', ng-init="GantiIsiEsaldo='default'")
+                div(ng-switch-when='changed')
+                    // -----------------------------------section3 starts-----------------------
+                    h4.text-capitalize e-saldo {{ title }}
+                    form
+                        .form-group.position-relative
+                            label.fs20.text-capitalize nomor pelanggan
+                            input.form-control#esaldo-no(type='text', value='', ng-focus="inputDataESaldo()" placeholder='Contoh: 081234567890' ng-change="inputDataESaldo()" ng-model="$parent.no_esaldo")
+                    .form-group
+                        label.fs20.text-capitalize#labelJudulNominal(style='visibility: hidden;') nominal e-saldo {{ title }}
+                        .row
+                            .col-lg-3.col-md-4.col-sm-6#cbcontent(style="margin-top: 25px;" ng-repeat="prefix in prefixes")
+                                label
+                                    | {{ prefix.name }}
+                                    span(style="display: block;") Point : {{ prefix.ep }}
+                                    input.trans-list(type='checkbox', name='scales', ng-model="prefix.checked" ng-click="updateSelection($index, prefixes)")
+                                    span.checkmark
+                    label.fs20.text-capitalize#label-harga(style='visibility: hidden;') harga
+                    .row.pt-2
+                        .col-md-6
+                            h5.text-capitalize.font-bold#harga(style='visibility: hidden;') rp {{ harga }}
+                            span.text-capitalize#nominal(style='visibility: hidden;') {{ nominal }}
+                        .col-md-6
+                            button.btn.btn-default.green-btn.float-right.text-uppercase(type='button' id='btn-beli' ng-disabled="!btnBeliEsaldo" data-toggle="modal" data-target="#modalKonfirmasi" data-backdrop="static" data-keyboard="false") beli
+                    .alert.alert-success.success-msg.position-relative(role='alert')
+                        i.position-absolute.fa.fa-info(aria-hidden='true')
+                        p
+                            | pastikan data yang Anda masukan sudah benar.
+                    // form-sec ends
+                    // -----------------------------------section3 ends-----------------------
+                div(ng-switch-when='default' style="margin-bottom: 200px;")
+                    h4.text-capitalize e-saldo
+                    .row
+                        .col-md-2.col-sm-3.col-3.mt-3(style="text-align: center;")
+                            a(ng-click="changeContent('gojek')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/esaldo_gojek.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase saldo gojek
+                        .col-md-2.col-sm-3.col-3.mt-3(style="text-align: center;")
+                            a(ng-click="changeContent('grab')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/esaldo_grab.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase saldo grab
+                        .col-md-2.col-sm-3.col-3.mt-3(style="text-align: center;")
+                            a(ng-click="changeContent('ovo')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/esaldo_ovo.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase saldo ovo
+                        .col-md-2.col-sm-3.col-3.mt-3(style="text-align: center;")
+                            a(ng-click="changeContent('dana')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/esaldo_dana.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase saldo dana
+                        .col-md-2.col-sm-3.col-3.mt-3(style="text-align: center;")
+                            a(ng-click="changeContent('tcash')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/esaldo_tcash.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase saldo link aja
+                        .col-md-2.col-sm-3.col-3.mt-3(style="text-align: center;")
+                            a(ng-click="changeContent('mtixcinema21')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/esaldo_mtixcinema21.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase m-tix cinema 21
+                        .col-md-2.col-sm-3.col-3.mt-3(style="text-align: center;")
+                            a(ng-click="changeContent('tixidmovie')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/esaldo_tixidmovie.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase tix-id movie
+// form-sec ends
+// -----------------------------------section3 ends-----------------------
+// -----------------------------modal konfirmasi starts-------------------
+.modal.fade#modalKonfirmasi
+    .modal-dialog.modal-lg.modal-dialog-centered
+        .modal-content
+            // Modal Header
+            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                h4.modal-title(style="color: #009933") Konfirmasi Pembayaran
+            // Modal body
+            .modal-body
+                hr(style="margin-top: 0rem")
+                .row
+                    .col-8
+                        h5 Nomor Pelanggan
+                        br
+                        h6(style="margin-bottom: 10px") {{ no_esaldo }}
+                        h6.text-capitalize {{ nominal }}
+                    .col-4(style="text-align: right;")
+                        img.img-fluid#logo-esaldo
+                hr
+                h5 Detail
+                br
+                .row
+                    .col-8
+                        h6.text-capitalize(style="margin-bottom: 10px") harga voucher
+                        h6.text-capitalize Biaya transaksi
+                    .col-4(style="text-align: right;")
+                        h6.text-capitalize(style="margin-bottom: 10px") rp {{ harga }}
+                        h6.text-capitalize Rp 0
+                hr
+                .row
+                    .col-8
+                        h5.text-capitalize total
+                    .col-4(style="text-align: right;")
+                        h5.text-capitalize(style="color: #009933") rp {{ harga }}
+            // Modal footer
+            .modal-footer(style="border-top: 0px")
+                button.btn.btn-secondary(type='button', data-dismiss='modal') BATALKAN
+                button.btn.btn-success#btKonfirmasi(ng-click="tampilModalAlert()", type='button', data-dismiss='modal') YA, LANJUTKAN
+// -----------------------------modal konfirmasi ends---------------------
+// -----------------------------modal alert starts------------------------
+.modal.fade#modalAlert
+    .modal-dialog.modal-lg.modal-dialog-centered
+        .modal-content
+            // Modal Header
+            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                h4.modal-title(style="color: #009933") Alert
+            // Modal body
+            .modal-body
+                hr(style="margin-top: 0rem")
+                h5.text-center#responhasilbeli
+                //- br
+                //- hr
+                //- h5 gagal
+                //- br
+            // Modal footer
+            .modal-footer(style="border-top: 0px")
+                button.btn.btn-success#btOk(type='button', data-dismiss='modal') OK
+// -----------------------------modal alert ends--------------------------

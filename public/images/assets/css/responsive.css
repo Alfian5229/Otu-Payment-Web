@@ -1,0 +1,316 @@
+/*--Boostrap responsive grid 5 column--*/
+.col-2dot4,
+.col-sm-2dot4,
+.col-md-2dot4,
+.col-lg-2dot4,
+.col-xl-2dot4 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+}
+.col-2dot4 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+@media (min-width: 540px) {
+    .col-sm-2dot4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+@media (min-width: 720px) {
+    .col-md-2dot4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+@media (min-width: 960px) {
+    .col-lg-2dot4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+@media (min-width: 1140px) {
+    .col-xl-2dot4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+
+/*--Responsive css--*/
+
+@media (min-width:1024px){
+	.navbar {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+}	
+
+@media (max-width:1200px){
+    .navbar-light .navbar-nav .nav-link {
+        padding: 15px 5px;
+    }
+    .pay-lists .nav-link {
+        margin: 0px 18px 0px 0px;
+    }
+
+    /*--trans--*/
+    .trans-descrip p {
+        text-align: left;
+        font-size: 16px;
+    }
+
+    /*--checkout--*/
+    .heading-div label {
+        font-size: 35px;
+    }
+    .checkout-form button {
+        margin-top: 70px;
+    }
+    .width-50 {
+        width: 60% !important;
+    }
+}
+
+@media (max-width:1024px){
+    .banner {
+        background-size: contain;
+    }
+    .pay-lists .nav-link {
+        margin: 0px 15px 0px 0px;
+    }
+    /*--trans--*/
+    .trans-details .w-100 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width:991px){
+    .navbar-nav {
+        flex-direction: row;
+    }
+    .topbar-rightnav .nav-link {
+        font-size: 22px;
+    }
+    ul.navbar-nav {
+        display: flex;
+        width: 50%;
+    }
+    div.navbar-collapse{
+        flex-basis: 60%;
+        display: flex;
+    }
+    div.navbar-collapse ul.nav.topbar-rightnav.justify-content-end {
+        display: inline-block;
+    }
+    .topbar-rightnav li.nav-item {
+        display: inline-block;
+    }
+    /*--trans--*/
+    .heading-div {
+        padding: 20px 20px;
+    }
+    .trans-descrip p {
+        font-size: 13px;
+    }
+    /*--checkout--*/
+    .heading-div h1 {
+        font-size: 25px;
+    }
+    .heading-div h4 {
+        text-align: center;
+    }
+    .heading-div label {
+        text-align: center;
+        width: 100%;
+        font-size: 25px;
+    }
+    .heading-div img {
+        width: 100%;
+    }
+    .width-50 {
+        width: 80% !important;
+    }
+    
+}
+
+@media (max-width:767px){
+    .navbar-light .navbar-brand {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-nav .last-item {
+        border-right: 0;
+    }
+    .payment-modes .d-flex {
+        flex-direction: column;
+    }
+    .payment-modes .d-flex .grid-box {
+        border-right: 0px;
+        padding-bottom: 20px;
+    }
+    .payment-modes .d-flex .col-lg-4:last-child .grid-box{
+        border-bottom: 0;
+    }
+    .payment-modes .d-flex ul.nav {
+        flex-direction: row;
+    }
+    .topbar-rightnav .nav-link {
+        font-size: 15px;
+    }
+    .topbar-rightnav .fa-plus {
+        font-size: 15px;
+    }
+
+    /*--form buy credit--*/
+    .form-sec .submit-btn {
+        display: flex;
+        justify-content: center;
+    }
+    .form-sec {
+        margin-bottom: 25px;
+    }
+    /*--form buy credit--*/
+
+    .checkbox-div ul li {
+        margin: 15px 18px 15px 0px;
+    }
+
+    /*--trans--*/
+    .trans-details .w-100 {
+        font-size: 20px;
+    }
+
+  /*--checkout--*/
+  .width-50 {
+    width: 85% !important;
+    font-size: 30px;
+}
+}
+@media (max-width:480px){
+	.modal-body img {
+		/*width: 30%;
+		height: 30%;*/
+	}
+    div.navbar-collapse {
+        flex-basis: 100%;
+        display: inline-block;
+    }
+    .navbar-collapse ul.navbar-nav {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-collapse ul.navbar-nav li.nav-item {
+        display: inline-block;
+    }
+    div.navbar-collapse ul.nav.topbar-rightnav.justify-content-end {
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+    }
+    .sec3-texture h2 {
+        color: #808080;
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .sec3 {
+        padding: 80px 0px;
+    }
+	/*-------form new design-------*/
+	.grid-box h4 {
+		font-size: 30px;
+	}
+	.grid-box h5 {
+		font-size: 17px;
+	}
+	/*-------form new design--------*/
+	
+    /*-------form buy credit-------*/
+    .form-sec {
+        margin-bottom: 25px;
+    }
+	.form-sec h4 {
+		font-size: 30px;
+	}
+	.form-sec h5 {
+		font-size: 17px;
+	}
+    /*-------form buy credit-------*/
+
+    /*--checkbox-form---*/
+    .success-msg p {
+        color: #000;
+        padding: 0px 19px;
+    }
+   
+    .form-sec .alert {
+        display: none;
+    }
+    .form-sec button {
+        float: none !important;
+        margin-top: 20px;
+    }
+    .form-sec .checkbox-div label {
+        padding: 2px 25px;
+    }
+    .checkbox-div ul li {
+        margin: 15px 2px 15px 0px;
+    }
+    /*--checkbox-form---*/
+
+    /*--trans--*/
+    .trans-details {
+        padding: 20px 0px;
+        margin-bottom: 35px;
+    }
+    .page-heading-bar span {
+        font-size: 25px;
+    }
+    .heading-div {
+        text-align: center;
+    }
+    .heading-div img {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /*--checkout--*/
+    .checkout-form {
+        padding: 20px 10px;
+        margin-bottom: 35px;
+    }
+    .padding-bottom30 {
+        padding-bottom: 20px !important;
+    }
+    .checkout-form .width-50 {
+        font-size: 14px;
+    }
+    .heading-div h4 {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    .heading-div label {
+        font-size: 30px;
+    }
+    .checkout-form button {
+        margin-top: 30px;
+    }
+    .heading-div label {
+        font-size: 20px;
+    }
+    .heading-div label span {
+        font-size: 20px;
+    }
+}

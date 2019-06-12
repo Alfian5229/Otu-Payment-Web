@@ -1,0 +1,23 @@
+extends temp_layout
+
+block content
+	div(class="main")
+		div(class="content")
+			div(class="sap_tabs")
+				div(id="horizontalTab" style="display: block; width: 100%; margin: 0px;")
+					div(class="tab-1 resp-content-active" aria-labelledby="tab_item-0")
+						div(class="payment-info")
+							h3 Payment Produk Pulsa
+							form(action="/pulsacheckout" method="post")
+								div(class="tab-for")
+									h5 No Handphone
+									input(id="nohp" type="text" name="nohp" value="")
+									div(id="prod")
+										div(id="listproduct" stye="font-size:12px;")
+									h5 No Transaksi Ke -
+									input(type="text" value="1" disabled)
+									br
+									input(type="submit" value="Submit")
+
+block scriptcontent	
+	script.
