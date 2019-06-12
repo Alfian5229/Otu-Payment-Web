@@ -1,0 +1,582 @@
+/* CSS Document */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-size: 14px;
+  font-family: Arial;
+  /*overflow-x: hidden;*/
+}
+
+ul,
+li,
+img {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  outline-offset: none;
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+span {
+  margin: 0;
+  padding: 0;
+}
+
+input[type=text]:not([#email]),
+input[type=button],
+input[type=submit],
+textarea {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  outline-offset: none;
+  border: none;
+}
+
+a,
+a:hover,
+a:visited,
+a:focus,
+ul li:hover,
+ul li:visited,
+ul li:focus,
+span:hover,
+span:visited,
+span:focus,
+label:hover:before {
+  text-decoration: none;
+}
+
+a:hover {
+ cursor:pointer;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.otucolor {
+  color: #009933;
+}
+
+.common-color{
+	color: #4d4d4d;
+}
+
+.fleft {
+  float: left;
+}
+
+.fright {
+  float: right;
+}
+
+.marginauto {
+  margin: 0 auto;
+}
+
+.commonclass {
+  width: 100%;
+  float: left;
+}
+.green-btn{
+  background: #009933;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 5px 100px;
+}
+.green-btn:hover{
+	color: #ffffff;
+	background-color: #218838;
+}
+.green-btn:focus{
+  box-shadow: none;
+}
+.w-100 {
+  width: 100%;
+  padding: 6px 0px;
+  border-radius: 10px;
+  font-size: 35px;
+}
+.width-50 {
+  width: 50% !important;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 6px 0px;
+  border-radius: 10px;
+  font-size: 35px;
+}
+.back-transparent{
+  background: transparent;
+  color: #009933;
+}
+.f-400{
+  font-weight: 400;
+}
+.border-btn{
+  border-bottom:0;
+}
+.margin-0{
+  margin-top: 0px !important;
+}
+.border-top{
+border-top:1px solid #808080 !important;
+}
+.border-bottom{
+  border-bottom:1px solid #808080 !important;
+}
+.margin-top50{
+  margin-top: 50px !important;
+}
+.padding-bottom30{
+  padding-bottom: 30px !important;
+}
+.black-color{
+  color: #000 !important;
+}
+.font-regular{
+  font-weight:400 !important;
+}
+.font-bold{
+font-weight:700 !important;
+}
+.green-color{
+  color: #009933 !important;
+}
+/*---------------------header css-----------------*/
+.topbar .bg-light{
+  background: transparent !important;
+}
+header #usersaldo, header #userbonus{
+  color: #009933;
+  font-weight: 400;
+  font-size: 22px;
+}
+header .row{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.topbar-rightnav .fa-plus {
+  color: #fff;
+  background: #fcee21;
+  padding: 4px 8px;
+  border-radius: 17px;
+  font-size: 30px;
+  font-weight: 400;
+}
+.topbar .navbar{
+  padding: 0rem 1rem;
+}
+.navbar-nav .last-item{
+  border-right: 2px solid #dce1e3;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 16px 5px;
+}
+.header-chat:hover {
+  opacity: .8;
+}
+/*---------------------header css ends------------*/
+
+
+
+/*---------------------banner css starts----------*/
+.banner-img img {
+  width: 100%;
+}
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+.modal-content {
+  border: 0px;
+}
+.carousel-control-prev, .carousel-control-next {
+  display: none;
+}
+/*---------------------banner css ends------------*/
+
+
+
+/*--------------------payment-modes  css starts---------*/
+.payment-modes{
+  background: #fcfcfc;
+  border:2px solid #ececec;
+  border-left:0;
+  border-right:0;
+  padding: 15px 0px;
+}
+.payment-modes .border-right-0{
+  border-right:0;
+}
+.grid-box {
+  float: left;
+  width: 100%;
+  border-right: 2px solid #e6e6e6;
+}
+.grid-box h4{
+  color:#4d4d4d;
+  font-size: 35px;
+  font-weight: 700;
+  margin: 25px 0px 10px;
+}
+.grid-box h5{
+  color:#4d4d4d;
+  margin-bottom: 5px;
+}
+.grid-box p{
+  color: #4d4d4d;
+  font-size:14px;
+  font-weight: 400;
+}
+.pay-lists ul li .nav-link{
+  margin-top: 17px;
+}
+.nav-link img {
+  margin: 0 auto;
+}
+.pay-lists .nav-link {
+  padding: 0px 0px 0px 0px;
+  margin: 0px 50px 0px 50px;
+}
+.pay-lists .nav-link label {
+  font-size: 12px;
+  color: #4d4d4d;
+  display: block;
+  text-align: center;
+}
+.pay-lists .nav-item {
+  width: 20%;
+}
+/*--------------------payment-modes css ends-----------*/
+
+
+
+
+/*--------------section3 css starts----------------*/
+.fs20 {
+  font-size: 20px;
+}
+
+.sec3 {
+  padding: 200px 0px;
+}
+
+.sec3-texture h2{
+  color:#808080;
+  font-size:34px;
+  font-weight:700;
+}
+/*--------------section3 css ends------------------*/
+
+
+
+/*--------------buy credit------------------------*/
+.form-section3 {
+  padding: 0;
+  background-color: white;
+}
+.form-sec {
+  margin-bottom: 15px;
+}
+.form-sec input[type='text'] {
+  border-radius: 0;
+  padding: 6px 5px;
+  border: 1px solid #009933;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  color: #009933;
+}
+.form-sec .form-control:focus {
+  box-shadow: none;
+}
+.form-sec h4 {
+  margin: 25px 0px 10px;
+  font-weight: 700;
+  color: #4d4d4d;
+  font-size: 35px;
+}
+.form-sec .submit-btn{
+  margin-top: 40px;
+}
+
+#listoperator{
+	border: 1px solid #009933;
+}
+/*--------------buy credit------------------------*/
+
+/*---form2---*/
+.form-sec .alert-warning {
+  color: #000;
+  background-color: transparent;
+  border-color: transparent;
+}
+.form-sec .alert {
+  top: 0;
+  right: 0;
+}
+.form-sec #harga{
+  color:#4d4d4d;
+  font-size: 35px;
+  font-weight: 700;
+}
+.form-sec .info-isi{
+	color:#4d4d4d;
+	margin-bottom: 20px;
+}
+.form-sec button span {
+  background: green;
+  color: #fff;
+  padding: 0px 4px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.form-sec label {
+  color: #4d4d4d;
+}
+.success-msg {
+  margin-top: 30px;
+}
+.success-msg p {
+  color: #155724;
+  padding: 0px 35px;
+}
+.success-msg i {
+  top: 10px;
+  left: 7px;
+  border: 1px solid;
+  padding: 4px 8px;
+  border-radius: 50%;
+}
+
+/*checkbox css*/
+.checkbox-div label{
+  color:#4d4d4d;;
+}
+.checkbox-div ul {
+  display: flex;
+  flex-flow: row wrap;
+}
+.checkbox-div ul li {
+  margin: 15px 25px 15px 0px;
+}
+.form-sec .checkbox-div label {
+  position: relative;
+  text-align: center;
+  padding: 2px 55px;
+  background: #fcfcfc;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.form-sec .checkbox-div label:focus-within {
+  border: 1px solid #009933 !important;
+}
+.checkbox-div span{
+  display: block;
+}
+
+.checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.checkbox-div label input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fcfcfc;
+}
+.checkbox-div label input:checked ~ .checkmark {
+  background-color: #009933;
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+.checkbox-div .checkmark:after {
+  right: 0;
+  width: auto;
+  height: auto;
+  color: #fff;
+  font-size: 20px;
+  font: normal normal normal 14px/1 FontAwesome;
+  content: "\f00c";
+  border: none;
+  transform: none;
+  top: 11px;
+  position: absolute;
+  left: 9px;
+}
+
+/*START NEW CUSTOM CHECKBOX*/
+.form-sec #cbcontent label {
+  position: relative;
+  text-align: center;
+  padding: 2px 35px;
+  background: #fcfcfc;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+.form-sec #cbcontent label input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.form-sec #cbcontent label input:checked ~ .checkmark {
+  background-color: #009933;
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+.form-sec #cbcontent .checkmark:after {
+  right: 0;
+  width: auto;
+  height: auto;
+  color: #fff;
+  font-size: 20px;
+  font: normal normal normal 14px/1 FontAwesome;
+  content: "\f00c";
+  border: none;
+  transform: none;
+  top: 11px;
+  position: absolute;
+  left: 9px;
+}
+/*END NEW CUSTOM CHECKBOX*/
+
+/*--------transction page css------*/
+.transac-heading{
+  background:#fff;
+}
+.transaksi{
+  background: #009933;
+}
+
+.page-heading-bar span{
+  font-size: 35px;
+  font-weight:400;
+  color: #fff;
+}
+.page-heading-bar i{
+  font-size: 35px;
+  font-weight:400;
+  color: #fff;
+  margin-right: 32px;
+}
+
+.heading-div {
+  background: #fff;
+  padding: 20px 25px;
+  border: 2px solid #e6e6e6;
+  border-radius: 10px;
+  margin: 35px 0px 50px 0px;
+}
+.heading-div label{
+  color:#009933;
+  font-size: 45px;
+  font-weight:700;
+}
+.trans-details {
+  background: #fff;
+  padding: 20px 40px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  margin-bottom: 200px;
+}
+.trans-details .border-btn{
+  border-bottom:0;
+}
+.icons ul li a i {
+  color: #009933;
+  padding: 19px 0px 0px 35px;
+}
+.trans-descrip p {
+  text-align: left;
+  font-size: 25px;
+}
+/*--------transction page css-------*/
+
+/*-------checkout form css----------*/
+.checkout-form .table td {
+  padding: .10rem 0rem;
+}
+.checkout-form button {
+  margin-top: 98px;
+}
+.heading-div h4{
+  color: #808080;
+  margin-top: 40px;
+}
+.heading-div label span {
+  display: block;
+  color: #808080;
+  font-size: 25px;
+}
+.checkout-form .heading-div label {
+  margin-left: 10px;
+}
+/*-------checkout form css----------*/
+
+/*-------style for modal------------*/
+.divider {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#modalCek .modal-body h6 {
+	color: #4d4d4d;
+}
+
+/* topup */
+	.media p {
+		font-size: 17px;
+		color: #4d4d4d;
+	}
+	.media:hover{
+		color : black !important;
+		background-color: #f8f9fa;
+		cursor: pointer;
+	}
+	.media:active{
+		background-color: #e9ecef;
+	}
+	.media img{
+		width: 100px;
+	}
+/* end of topup */

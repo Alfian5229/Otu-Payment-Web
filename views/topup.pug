@@ -1,0 +1,123 @@
+// -----------------------------------section3 starts-----------------------
+section.form-section3.commonclass.pb-5.bg-white
+    .container
+        .form-sec.commonclass
+            div(ng-switch="topupChangeContent" ng-init="topupChangeContent='contentMetode'")
+                div(ng-switch-when="contentMetode")
+                    h4.text-capitalize.mb-3 Isi ulang saldo OTU
+                    form
+                        .form-group.position-relative
+                            label.fs20.mb-2.text-capitalize nominal topup
+                            input.m-b-4.form-control#valuetopup(type='text', placeholder='Masukkan Nominal', ng-change="functiontopup()", ng-model="$parent.valuetopup")
+                            label.mb-2.text-danger.text-capitalize Minimal nominal isi ulang adalah Rp 10.000
+                    div(ng-show="showcontent")
+                        h4.text-capitalize(style="font-size: 30px;") Metode Pembayaran
+                        label.fs20.mb-2.text-uppercase bank transfer
+                        .media.border.pl-3(ng-click="topupkonfirmasi('PERMATA')")
+                            img.img-fluid.ml-2.mr-4.align-self-center#logopermata
+                            .media-body.align-self-center
+                                h4(style="font-size: 20px; margin: 0px;") BANK PERMATA
+                                p#bankpermata
+                        .media.border.pl-3(ng-click="topupkonfirmasi('CIMB')")
+                            img.img-fluid.ml-2.mr-4.align-self-center#logocimb
+                            .media-body.align-self-center
+                                h4(style="font-size: 20px; margin: 0px;") BANK CIMB
+                                p#bankcimb
+                        .media.border.pl-3(ng-click="topupkonfirmasi('BCA')")
+                            img.img-fluid.ml-2.mr-4.align-self-center#logobca
+                            .media-body.align-self-center
+                                h4(style="font-size: 20px; margin: 0px;") BANK BCA
+                                p#bankbca
+                        .media.border.pl-3(ng-click="topupkonfirmasi('BRI')")
+                            img.img-fluid.ml-2.mr-4.align-self-center#logobri
+                            .media-body.align-self-center
+                                h4(style="font-size: 20px; margin: 0px;") BANK BRI
+                                p#bankbri
+                        .media.border.pl-3(ng-click="topupkonfirmasi('BNI')")
+                            img.img-fluid.ml-2.mr-4.align-self-center#logobni
+                            .media-body.align-self-center
+                                h4(style="font-size: 20px; margin: 0px;") BANK BNI
+                                p#bankbni
+                        .media.border.pl-3(ng-click="topupkonfirmasi('MANDIRI')")
+                            img.img-fluid.ml-2.mr-4.align-self-center#logomandiri
+                            .media-body.align-self-center
+                                h4(style="font-size: 20px; margin: 0px;") BANK MANDIRI
+                                p#bankmandiri
+                        label.fs20.mb-2.mt-3.text-uppercase kartu kredit
+                        //- .media.border.pl-3(ng-click="topupkonfirmasi('KARTU KREDIT')")
+                        //-     img.img-fluid.ml-2.mr-4.align-self-center#logokartukredit
+                        //-     .media-body.align-self-center
+                        //-         h4(style="font-size: 20px; margin: 0px;") BANK KARTU KREDIT
+                        //-         p#bankkartukredit
+                div(ng-switch-when="contentKonfirmasi")
+                    h4.text-capitalize.mb-3(style="font-size: 30px") selesaikan pembayaran sebelum
+                    h5.text-center.text-capitalize.common-color#enddate(style="margin-top: 40px; font-weight: 100;") {{ enddate }}
+                    h4.text-center(style="font-size: 40px; margin-top: 10px; font-weight: 100") {{countdown | secondsToDateTime | date:'HH : mm : ss'}}
+                    h5.text-center.font-italic.text-capitalize.common-color Jam &emsp; Menit &emsp; Detik
+                    h4.text-capitalize.mt-5.mb-3(style="font-size: 30px") silahkan transfer ke
+                    .row.no-gutters.common-color
+                        .col
+                            .row.no-gutters
+                                .col-6.my-auto
+                                    h5 {{ konfbank }}
+                                    h5.font-weight-bold {{ konfkode_bank }}
+                                .col-6(style="float: right; text-align: right;")
+                                    img(style="width: 100px" ng-src="{{ konflogo }}")
+                                .col-6.my-auto
+                                    h5 Nomor Rekening 
+                                    h5.mt-1 Nama Rekening
+                                    h5.mt-1 Total Pembayaran 
+                                .col-6.my-auto(style="float: right; text-align: right;")
+                                    h5.font-weight-bold {{ konfnomer_rekening }}
+                                    h5.font-weight-bold.mt-1 {{ konfnama_pemilik }}
+                                    h5.font-weight-bold.mt-1 {{ konfnominal }}
+                                .alert.alert-danger.text-center.mt-4(style="width: 100%")
+                                    strong PENTING! 
+                                    | Pastikan transfer sesuai hingga 3 digit terakhir, dan Anda akan merima Saldo OTU Sejumlah 
+                                    span {{ konfnominal2 }}
+
+// -----------------------------modal transferKonfirmasi starts-------------------
+.modal.fade#modalTopupKonfirmasi
+    .modal-dialog.col-8.modal-dialog-centered
+        .modal-content
+            form(ng-submit="cektujuantransfer()")
+                // Modal Header
+                .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                    h5.modal-title.text-center(style="color: #009933")
+                        | Apakah Anda yakin akan melakukan Isi Ulang Saldo OTU?
+                // Modal body
+                .modal-body
+                    hr(style="margin-top: 0rem")
+                    .row
+                        .col-5
+                            h6.mb-2.text-capitalize Jumlah Deposit
+                            h6.text-capitalize Metode Pembayaran
+                        .col-1.text-center
+                            h6.mb-2 :
+                            h6(style="margin-bottom: 0px;") :
+                        .col-6(style="text-align: right;")
+                            h6.mb-2.font-weight-bold.text-capitalize#nominaltopup
+                            h6.font-weight-bold.text-capitalize#namabank
+                    div(style="text-align: right;")
+                        img.img-fluid#gambarbank(style="width: 100px")
+                    hr(style="margin: 0px;")
+                // Modal footer
+                .modal-footer(style="border-top: 0px")
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') BATALKAN
+                    button.btn.btn-success#btTransferKonfirmasi(ng-click="topupFix()" type='button', data-dismiss='modal') YA, LANJUTKAN
+// -----------------------------modal transferKonfirmasi ends---------------------
+// -----------------------------modal alert starts------------------------
+.modal.fade#modalAlert
+    .modal-dialog.modal-lg.modal-dialog-centered
+        .modal-content
+            // Modal Header
+            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                h4.modal-title(style="color: #009933") Alert
+            // Modal body
+            .modal-body
+                hr(style="margin-top: 0rem")
+                h5.text-center#responAlert
+            // Modal footer
+            .modal-footer(style="border-top: 0px")
+                button.btn.btn-success#btOk(type='button', data-dismiss='modal') OK
+// -----------------------------modal alert ends--------------------------

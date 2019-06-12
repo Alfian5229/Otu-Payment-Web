@@ -1,0 +1,178 @@
+// -----------------------------------section3 starts-----------------------
+section.form-section3.commonclass
+    .container
+        .form-sec.commonclass
+            div(ng-switch='GantiIsiGame', ng-init="GantiIsiGame='default'")
+                div(ng-switch-when='changed')
+                    // -----------------------------------section3 starts-----------------------
+                    h4.text-capitalize voucher game {{ title }}
+                    form
+                        .form-group.position-relative
+                            label.fs20.text-capitalize nomor pelanggan
+                            input.form-control#game-no(type='text', value='', ng-focus="inputDataGame()" placeholder='Contoh: 081234567890' ng-change="inputDataGame()" ng-model="$parent.no_game")
+                    .form-group
+                        label.fs20.text-capitalize#labelJudulNominal(style='visibility: hidden;') nominal {{ title }}
+                        .row
+                            .col-lg-4.col-md-6.col-sm-6#cbcontent(style="margin-top: 25px;" ng-repeat="prefix in prefixes")
+                                label
+                                    | {{ prefix.name }}
+                                    span(style="display: block;") Point : {{ prefix.ep }}
+                                    input.trans-list(type='checkbox', name='scales', ng-model="prefix.checked" ng-click="updateSelection($index, prefixes)")
+                                    span.checkmark
+                    label.fs20.text-capitalize#label-harga(style='visibility: hidden;') harga
+                    .row.pt-2
+                        .col-md-6
+                            h5.text-capitalize.font-bold#harga(style='visibility: hidden;') rp {{ harga }}
+                            span.text-capitalize#nominal(style='visibility: hidden;') {{ nominal }}
+                        .col-md-6
+                            button.btn.btn-default.green-btn.float-right.text-uppercase(type='button' id='btn-beli' ng-disabled="!btnBeliGame" data-toggle="modal" data-target="#modalKonfirmasi" data-backdrop="static" data-keyboard="false") beli
+                    .alert.alert-success.success-msg.position-relative(role='alert')
+                        i.position-absolute.fa.fa-info(aria-hidden='true')
+                        p
+                            | pastikan data yang Anda masukan sudah benar.
+                    // form-sec ends
+                    // -----------------------------------section3 ends-----------------------
+                div(ng-switch-when='default' style="margin-bottom: 200px;")
+                    h4.text-capitalize voucher game
+                    h5.text-capitalize.info-isi pilih voucher game
+                    .row(style="text-align: center;")
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('MEGAXUS')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_MEGAXUS.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase megaxus
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('GARENA')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_GARENA.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase garena
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('GEMSCOOL')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_GEMSCOOL.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase gemscool
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('MOBILE LEGENDS')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_MOBILE LEGENDS.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase mobile legend
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('GOOGLE PLAY ID')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_GOOGLE PLAY ID.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase google play
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('LYTO')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_LYTO.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase lyto
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('MOL')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_MOL.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase mol
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('CHERRY')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_CHERRY.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase cherry
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('PUBG')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_PUBG.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase pubg
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('STEAM')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_STEAM.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase steam
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('AERIA')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_AERIA.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase aeria
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('MCOIN')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_MCOIN.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase m coins
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('WAVEGAME')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_WAVEGAME.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase wavegame
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('UNIPIN')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_UNIPIN.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase unipin
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('FB KREDIT')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_FB KREDIT.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase fb credit
+                        .col-md-2.col-sm-3.col-3.mt-3
+                            a(ng-click="changeContent('TRAVIAN')")
+                                img.img-fluid.img-thumbnail.img-responsive(src='/images/icon_produk/game_TRAVIAN.png', alt='Main-Payment_Payment-Home1_39')
+                                br
+                                label.text-uppercase travian
+// form-sec ends
+// -----------------------------------section3 ends-----------------------
+// -----------------------------modal konfirmasi starts-------------------
+.modal.fade#modalKonfirmasi
+    .modal-dialog.modal-lg.modal-dialog-centered
+        .modal-content
+            // Modal Header
+            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                h4.modal-title(style="color: #009933") Konfirmasi Pembayaran
+            // Modal body
+            .modal-body
+                hr(style="margin-top: 0rem")
+                .row
+                    .col-8.my-auto
+                        h5 Nomor Pelanggan
+                        br
+                        h6(style="margin-bottom: 10px") {{ no_game }}
+                        h6.text-capitalize {{ nominal }}
+                    .col-4.my-auto(style="text-align: right;")
+                        img.img-fluid#logo-game
+                hr
+                h5 Detail
+                br
+                .row
+                    .col-8
+                        h6.text-capitalize(style="margin-bottom: 10px") harga voucher
+                        h6.text-capitalize Biaya transaksi
+                    .col-4(style="text-align: right;")
+                        h6.text-capitalize(style="margin-bottom: 10px") rp {{ harga }}
+                        h6.text-capitalize Rp 0
+                hr
+                .row
+                    .col-8
+                        h5.text-capitalize total
+                    .col-4(style="text-align: right;")
+                        h5.text-capitalize(style="color: #009933") rp {{ harga }}
+            // Modal footer
+            .modal-footer(style="border-top: 0px")
+                button.btn.btn-secondary(type='button', data-dismiss='modal') BATALKAN
+                button.btn.btn-success#btKonfirmasi(ng-click="tampilModalAlert()", type='button', data-dismiss='modal') YA, LANJUTKAN
+// -----------------------------modal konfirmasi ends---------------------
+// -----------------------------modal alert starts------------------------
+.modal.fade#modalAlert
+    .modal-dialog.modal-lg.modal-dialog-centered
+        .modal-content
+            // Modal Header
+            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                h4.modal-title(style="color: #009933") Alert
+            // Modal body
+            .modal-body
+                hr(style="margin-top: 0rem")
+                h5.text-center#responhasilbeli
+                //- br
+                //- hr
+                //- h5 gagal
+                //- br
+            // Modal footer
+            .modal-footer(style="border-top: 0px")
+                button.btn.btn-success#btOk(type='button', data-dismiss='modal') OK
+// -----------------------------modal alert ends--------------------------

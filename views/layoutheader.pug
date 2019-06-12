@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/style_new.css')
+  body
+   div(class="top-container")
+    img(src="/images/2.jpg" width="90%" height="100%")
+    <!--h1 Scroll Down p Scroll down to see the sticky effect.-->
+
+   div(class="header" id="myHeader")
+    <!--h2 My Header-->
+    div(style="display:inline-block;padding: 0 0 0 0;width: 5%;height:5%;")
+     img(src="/images/Kompetisi dan Penganugrahan.jpg" height="100%" width="100%")
+    div(style="display:inline-block;padding: 0 0 0 0;width: 5%;height:5%;")
+     img(src="/images/Kompetisi dan Penganugrahan.jpg" height="100%" width="100%")
+    div(style="display:inline-block;padding: 0 0 0 0;width: 5%;height:5%;")
+     img(src="/images/Kompetisi dan Penganugrahan.jpg" height="100%" width="100%")
+    div(style="display:inline-block;padding: 0 0 0 0;width: 5%;height:5%;")
+     img(src="/images/Kompetisi dan Penganugrahan.jpg" height="100%" width="100%")
+    div(style="display:inline-block;padding: 0 0 0 0;width: 5%;height:5%;")
+     img(src="/images/Kompetisi dan Penganugrahan.jpg" height="100%" width="100%")
+    div(style="display:inline-block;padding: 0 0 0 0;width: 5%;height:5%;")
+     img(src="/images/Kompetisi dan Penganugrahan.jpg" height="100%" width="100%")
+    div(style="display:inline-block;padding: 0 0 0 0;width: 5%;height:5%;")
+     img(src="/images/Kompetisi dan Penganugrahan.jpg" height="100%" width="100%")
+    div(style="display:inline-block;padding: 0 0 0 0;width: 5%;height:5%;")
+     img(src="/images/Kompetisi dan Penganugrahan.jpg" height="100%" width="100%")
+	
+    script.
+     window.onscroll = function() {myFunction()};
+     var header = document.getElementById("myHeader");
+     var sticky = header.offsetTop;
+     function myFunction() {
+      if (window.pageYOffset > sticky) {header.classList.add("sticky");
+      } else {header.classList.remove("sticky");}}
+
+  block content

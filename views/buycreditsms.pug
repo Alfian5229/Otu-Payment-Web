@@ -1,0 +1,101 @@
+// -----------------------------------section3 starts-----------------------
+section.form-section3.commonclass
+    .container
+        .row
+            .col-lg-12
+                .form-sec.commonclass
+                    h4.text-capitalize SMS
+                    form
+                        .form-group.position-relative
+                            label.fs20.mb-2.text-capitalize nomor telepon
+                            input.m-b-4.form-control#telephone-no(type='text', value='', placeholder='Contoh: 081234567890', ng-change="myFuncCredit2()", ng-model="myValue")
+                            //- .alert.position-absolute.alert-dismissible.fade.show(role='alert')
+                                //- .alert.position-absolute.alert-dismissible.fade.show(role='alert')
+                                //-     #brand-name.popup-img.commonclass
+                                //-         img.img-fluid.float-right(src='/images/assets/images/popup-img.png', alt='popup-img')
+                                //-     button.close(type='button', data-dismiss='alert', aria-label='Close')
+                                //-         span(aria-hidden='true') ×
+                            //- p {{ provider }}
+                    h5.mt-5(ng-show="datakosong" style="text-align: center; color: #4d4d4d;") Tidak Ada Produk
+                    #hideData(style='visibility: hidden;')
+                        form#myForm
+                            .form-group
+                                label.fs20.text-capitalize nominal sms
+                                .row
+                                    .col-lg-3.col-md-4.col-sm-6#cbcontent(style="margin-top: 25px;" ng-repeat="prefix in prefixes")
+                                        label
+                                            | {{ prefix.name }}
+                                            span(style="display: block;") Point : {{ prefix.ep }}
+                                            input.trans-list(type='checkbox', name='scales', ng-model="prefix.checked" ng-click="updateSelection($index, prefixes)")
+                                            span.checkmark
+                        label.fs20.text-capitalize#label-harga(style='visibility: hidden;') harga
+                        .row.pt-2
+                            .col-md-6
+                                h5.text-capitalize.font-bold#harga(style='visibility: hidden;') rp {{ harga }}
+                                span.text-capitalize#nominal {{ nominal }}
+                            .col-md-6
+                                button.btn.btn-default.green-btn.float-right.text-uppercase(type='button' id='btn-beli' ng-disabled="!btnBeli" data-toggle="modal" data-target="#modalKonfirmasi" data-backdrop="static" data-keyboard="false") beli
+                        .alert.alert-success.success-msg.position-relative(role='alert')
+                            i.position-absolute.fa.fa-info(aria-hidden='true')
+                            p
+                                | pastikan nomor handphone yang Anda masukan sudah benar.
+// form-sec ends
+// -----------------------------------section3 ends-----------------------
+// -----------------------------modal konfirmasi starts-------------------
+.modal.fade#modalKonfirmasi
+    .modal-dialog.modal-lg.modal-dialog-centered
+        .modal-content
+            // Modal Header
+            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                h4.modal-title(style="color: #009933") Konfirmasi Pembayaran
+            // Modal body
+            .modal-body
+                hr(style="margin-top: 0rem")
+                .row
+                    .col-8.my-auto
+                        h5 Nomor Handphone
+                        br
+                        h6(style="margin-bottom: 10px") {{ myValue }}
+                        h6.text-capitalize {{ nominal }}
+                    .col-4.my-auto(style="text-align: right;")
+                        img.img-fluid#logoProvider
+                hr
+                h5 Detail
+                br
+                .row
+                    .col-8
+                        h6.text-capitalize(style="margin-bottom: 10px") harga voucher
+                        h6.text-capitalize Biaya transaksi
+                    .col-4(style="text-align: right;")
+                        h6.text-capitalize(style="margin-bottom: 10px") rp {{ harga }}
+                        h6.text-capitalize Rp 0
+                hr
+                .row
+                    .col-8
+                        h5.text-capitalize total
+                    .col-4(style="text-align: right;")
+                        h5.text-capitalize(style="color: #009933") rp {{ harga }}
+            // Modal footer
+            .modal-footer(style="border-top: 0px")
+                button.btn.btn-secondary(type='button', data-dismiss='modal') BATALKAN
+                button.btn.btn-success#btKonfirmasi(ng-click="tampilModalAlert()" type='button', data-dismiss='modal') YA, LANJUTKAN
+// -----------------------------modal konfirmasi ends---------------------
+// -----------------------------modal alert starts------------------------
+.modal.fade#modalAlert
+    .modal-dialog.modal-lg.modal-dialog-centered
+        .modal-content
+            // Modal Header
+            .modal-header(style="border-bottom: 0px; padding-bottom: 0px")
+                h4.modal-title(style="color: #009933") Alert
+            // Modal body
+            .modal-body
+                hr(style="margin-top: 0rem")
+                h5.text-center#responhasilbeli
+                //- br
+                //- hr
+                //- h5 gagal
+                //- br
+            // Modal footer
+            .modal-footer(style="border-top: 0px")
+                button.btn.btn-success#btOk(type='button', data-dismiss='modal') OK
+// -----------------------------modal alert ends--------------------------

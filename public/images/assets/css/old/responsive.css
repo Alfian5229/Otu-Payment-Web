@@ -1,0 +1,101 @@
+/*--Responsive css--*/
+
+@media (max-width:1200px){
+    .navbar-light .navbar-nav .nav-link {
+        padding: 15px 5px;
+    }
+    .pay-lists .nav-link {
+        margin: 0px 18px 0px 0px;
+    }
+}
+
+@media (max-width:1024px){
+    .banner {
+        background-size: contain;
+    }
+    .pay-lists .nav-link {
+        margin: 0px 15px 0px 0px;
+    }
+}
+
+@media (max-width:991px){
+    .navbar-nav {
+        flex-direction: row;
+    }
+    .topbar-rightnav .nav-link {
+        font-size: 22px;
+    }
+    ul.navbar-nav {
+        display: flex;
+        width: 50%;
+    }
+    div.navbar-collapse{
+        flex-basis: 60%;
+        display: flex;
+    }
+    div.navbar-collapse ul.nav.topbar-rightnav.justify-content-end {
+        display: inline-block;
+    }
+    .topbar-rightnav li.nav-item {
+        display: inline-block;
+    }
+    
+}
+
+@media (max-width:767px){
+    .navbar-light .navbar-brand {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-nav .last-item {
+        border-right: 0;
+    }
+    .payment-modes .d-flex {
+        flex-direction: column;
+    }
+    .payment-modes .d-flex .grid-box {
+        border-bottom: 2px solid #e6e6e6;
+        border-right: 0px;
+        padding-bottom: 20px;
+    }
+    .payment-modes .d-flex .col-lg-4:last-child .grid-box{
+        border-bottom: 0;
+    }
+    .payment-modes .d-flex ul.nav {
+        flex-direction: row;
+    }
+    .topbar-rightnav .nav-link {
+        font-size: 15px;
+    }
+    .topbar-rightnav .fa-plus {
+        font-size: 15px;
+    }
+}
+@media (max-width:480px){
+    div.navbar-collapse {
+        flex-basis: 100%;
+        display: inline-block;
+    }
+    .navbar-collapse ul.navbar-nav {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-collapse ul.navbar-nav li.nav-item {
+        display: inline-block;
+    }
+    div.navbar-collapse ul.nav.topbar-rightnav.justify-content-end {
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+    }
+    .sec3-texture h2 {
+        color: #808080;
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .sec3 {
+        padding: 80px 0px;
+    }
+    
+}

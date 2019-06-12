@@ -1,0 +1,24 @@
+extends layoutheader
+
+block content
+ div(class="content")
+  div(class="sap_tabs")
+   div(class="pay-tabs")
+   div(class="resp-tabs-container")
+    form(method='POST' action='/pulsatransaksi')
+     div.form-group
+      label(for='userID') userID:
+      input#userID.form-control(type='text', name='userID')
+     div.form-group
+      label(for='MSISDN') no hp:
+      input#MSISDN.form-control(type='text', placeholder='nomer handphone anda (08...xxx)' name='MSISDN')
+     div.form-group
+      label(for='sequence') sequence:
+      input#sequence.form-control(type='text', name='sequence')
+     div.form-group
+      label(for='buyerPhone') buyerPhone:
+      input#buyerPhone.form-control(type='text', name='buyerPhone')
+     button.btn.btn-primary(type='submit') Next
+  
+ div(class="footer")
+  This footer will always be positioned at the bottom of the page, but <strong>not fixed</strong>.
