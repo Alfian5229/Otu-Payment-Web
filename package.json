@@ -32,6 +32,6 @@
     "time-stamp": "^2.2.0"
   },
   "devDependencies": {
-    "ws": "7.1.0"
+    "ws": "7.4.6"
   }
 }
